@@ -28,12 +28,40 @@
 
         var etiquetas = document.getElementById('etiquetas');
         var camisa_evento = document.getElementById('camisa_evento');
-        var cliente = (nombre.value + ' ' + apellido.value);
         calcular.addEventListener('click', calcularMontos);
 
         pase_dia.addEventListener('blur', mostrarDia);
         pase_dosDias.addEventListener('blur', mostrarDia);
         pase_completo.addEventListener('blur', mostrarDia);
+
+        nombre.addEventListener('blur', validarCampos);
+        apellido.addEventListener('blur', validarCampos);
+        email.addEventListener('blur', validarCampos);
+        email.addEventListener('blur', validarEmail);
+
+        function validarCampos() {
+            if (this.value == '') {
+                error.style.display = 'block';
+                error.innerHTML = "Este Campo es Obligatorio";
+                this.style.border = "1px solid red";
+                error.style.border = "1px solid red";
+            } else {
+                error.style.display = 'none';
+                this.style.border = "1px solid #767676";
+            }
+        }
+
+        function validarEmail() {
+            if (this.value.indexOf("@") > -1) {
+                error.style.display = 'none';
+                this.style.border = "1px solid #767676";
+            } else {
+                error.style.display = 'block';
+                error.innerHTML = "Este Campo requiere correo con @";
+                this.style.border = "1px solid red";
+                error.style.border = "1px solid red";
+            }
+        }
 
         function calcularMontos(event) {
             event.preventDefault();

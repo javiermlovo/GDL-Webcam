@@ -908,7 +908,24 @@ blockquote p::before {
 
 .registro .campo label {
     margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
     font-weight: bold;
+    width: 50%;
+}
+
+.campo input {
+    width: 50%;
+}
+
+.campo {
+    display: flex;
+    padding: 2rem 1rem;
+}
+
+@media (min-width: 768px) {
+    .campo {
+        display: inline;
+    }
 }
 
 h4 {
@@ -924,10 +941,6 @@ h4 {
     border: 1px solid #e1e1e1;
     padding: 1rem;
     margin: 1rem;
-}
-
-.campo {
-    padding: 2rem;
 }
 
 @media (min-width: 768px) {
@@ -1134,6 +1147,13 @@ h4 {
 
 .clearfix::after {
     clear: both;
+}
+
+#error {
+    clear: both;
+    text-align: center;
+    padding: 2rem;
+    display: none;
 }
 
 
